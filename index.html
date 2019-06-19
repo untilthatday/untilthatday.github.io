@@ -383,6 +383,182 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/undefined/lightoj(1341)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ling">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/headergirl.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="无用心">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/undefined/lightoj(1341)/" class="post-title-link" itemprop="url">Aladdin and the Flying Carpet (唯一分解定理)</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-06-20 00:20:22 / 修改时间：00:52:07" itemprop="dateCreated datePublished" datetime="2019-06-20T00:20:22+08:00">2019-06-20</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/题解/" itemprop="url" rel="index"><span itemprop="name">题解</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>题目描述<br>It’s said that Aladdin had to solve seven mysteries before getting the Magical Lamp which summons a powerful Genie. Here we are concerned about the first mystery.</p>
+<p>Aladdin was about to enter to a magical cave, led by the evil sorcerer who disguised himself as Aladdin’s uncle, found a strange magical flying carpet at the entrance. There were some strange creatures guarding the entrance of the cave. Aladdin could run, but he knew that there was a high chance of getting caught. So, he decided to use the magical flying carpet. The carpet was rectangular shaped, but not square shaped. Aladdin took the carpet and with the help of it he passed the entrance.</p>
+<p>Now you are given the area of the carpet and the length of the minimum possible side of the carpet, your task is to find how many types of carpets are possible. For example, the area of the carpet 12, and the minimum possible side of the carpet is 2, then there can be two types of carpets and their sides are: {2, 6} and {3, 4}.</p>
+<p>Input<br>Input starts with an integer T (≤ 4000), denoting the number of test cases.</p>
+<p>Each case starts with a line containing two integers: a b (1 ≤ b ≤ a ≤ 1012) where a denotes the area of the carpet and b denotes the minimum possible side of the carpet.</p>
+<p>Output<br>For each case, print the case number and the number of possible carpets.</p>
+<p>Sample Input</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">2</span><br><span class="line">10 2</span><br><span class="line">12 2</span><br></pre></td></tr></table></figure>
+
+<p>Sample Output</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Case 1: 1</span><br><span class="line">Case 2: 2</span><br></pre></td></tr></table></figure>
+
+<p>题目大意为：给你n和m，让你求n的因子中大于或等于m的个数。<br>这道题我开始直接暴力，及直接从m开始计算，处理到sqrt(n)，算这之间的的因子个数，但是直接T了，所以使用了唯一分解定理。以下是百度百科对于唯一分解定理（算术基本定理）的解释：算术基本定理可表述为：任何一个大于1的自然数 N,如果N不为质数，那么N可以唯一分解成有限个质数的乘积N=P1a1P2a2P3a3……Pnan，这里P1&lt;P2&lt;P3……&lt;Pn均为质数，其中指数ai是正整数。这样的分解称为 N 的标准分解式。最早证明是由欧几里得给出的，现代是由陈述证明。此定理可推广至更一般的交换代数和代数数论。<br>我们可以通过此定理直接计算n的所有因子个数，及计算ai的值，然后对于每个pi我们就有(ai+1)中选法，不选和选x个。然后在计算小于m的因子个数，由总的因子个数减去小于m的因子个数就得到答案了。<br>代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;algorithm&gt;</span><br><span class="line">#include &lt;cmath&gt;</span><br><span class="line">#include &lt;cstdio&gt;</span><br><span class="line">#include &lt;vector&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">typedef long long ll;</span><br><span class="line">const int Maxn=1e6+5;</span><br><span class="line">vector&lt;int&gt; pri;</span><br><span class="line">bool ispri[Maxn];</span><br><span class="line"></span><br><span class="line">ll all(ll n)</span><br><span class="line">&#123;</span><br><span class="line">    int i=0;</span><br><span class="line">    ll ans=1;</span><br><span class="line">    int len=pri.size();</span><br><span class="line">    while(i&lt;len &amp;&amp; n&gt;1)&#123;</span><br><span class="line">        int num=0;</span><br><span class="line">        while(n%pri[i]==0)&#123;</span><br><span class="line">            num++;</span><br><span class="line">            n/=pri[i];</span><br><span class="line">        &#125;</span><br><span class="line">        i++;</span><br><span class="line">        ans*=(num+1);</span><br><span class="line">    &#125;</span><br><span class="line">    if(n&gt;1)        //如果n&gt;1，说明此时的n还是一个因数，并且没有被计算到，所以乘以(1+1)</span><br><span class="line">        ans&lt;&lt;=1;</span><br><span class="line">    ans&gt;&gt;=1;      //计算得到的是因数的总个数，我们只需要求它的因数对数，所以除以2</span><br><span class="line">    return ans;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">ll yin(ll n,ll m)</span><br><span class="line">&#123;</span><br><span class="line">    int ans=0;</span><br><span class="line">    for(int i=1;i&lt;m;i++)&#123;</span><br><span class="line">        if(n%i==0)&#123;</span><br><span class="line">            ans++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return ans;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void privis()</span><br><span class="line">&#123;</span><br><span class="line">    fill(ispri,ispri+Maxn,true);</span><br><span class="line">    for(int i=2;i&lt;1e6;i++)&#123;</span><br><span class="line">        if(ispri[i])&#123;</span><br><span class="line">            for(int j=i+i;j&lt;=1e6;j+=i)&#123;</span><br><span class="line">                ispri[j]=false;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    pri.clear();</span><br><span class="line">    for(int i=2;i&lt;=1e6;i++)&#123;</span><br><span class="line">        if(ispri[i]) pri.push_back(i);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    privis();</span><br><span class="line">    ll t;</span><br><span class="line">    scanf(&quot;%d&quot;,&amp;t);</span><br><span class="line">    for(ll i=1;i&lt;=t;i++)&#123;</span><br><span class="line">        ll s,m;</span><br><span class="line">        cin&gt;&gt;s&gt;&gt;m;</span><br><span class="line">        if(m&gt;sqrt(s))&#123;</span><br><span class="line">            printf(&quot;Case %lld: 0\n&quot;,i);</span><br><span class="line">        &#125;</span><br><span class="line">        else&#123;</span><br><span class="line">            ll ans=all(s)-yin(s,m);</span><br><span class="line">            printf(&quot;Case %lld: %lld\n&quot;,i,ans);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>其实说实话，我也不知道为什么这道题不用唯一分解定理就会T，因为如果不用唯一分解定理，我使用暴力时需要从m处理到sqrt(n)，时间时间复杂度为O(n)，如果使用唯一分解定理时，只是计算小于m的因数个数时间复杂度就和暴力时同样为O(n)，博主对于该定理只是有很肤浅的理解，所以有点不知道，猜测是题目数据的问题，其中的m很小，所以用这种不会T，但是如果有知道的小伙伴可以在评论区留言，感谢你们的指点。</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/undefined/POJ(3529)/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -913,7 +1089,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-count">4</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -953,7 +1129,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">2</span>
+                      
+                    
+                    <span class="site-state-item-count">3</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -1527,6 +1705,5 @@
   
 
 
-  undefined
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":"hijiki","position":"left","bottom":-30,"mobileShow":false,"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"live2d-widget-model-zhuzuku"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7}});</script></body>
 </html>
