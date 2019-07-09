@@ -96,18 +96,18 @@
 
 
 
-  <meta name="description" content="素数是除了1和本身没有其他因数的数。判断一个数是否是素数    对于一个数的素数判定，可以通过遍历它的所有因数，如果它的因数个数大于2，则它不是素数，否则它是素数。当遍历它的所有因数时，我们可以从1遍历到sqrt(n)，因为当一个数的因数肯定是一个大于等于sqrt(n)，另一个大于等于sqrt(n)的，所以当我们遍历所有因数时，遍历到sqrt(n)时，如果有除1以外的其他因数，则这个数不是素数，附">
+  <meta name="description" content="素数是除了1和本身没有其他因数的数。判断一个数是否是素数    对于一个数的素数判定，可以通过遍历它的所有因数，如果它的因数个数大于2，则它不是素数，否则它是素数。当遍历它的所有因数时，">
 <meta name="keywords" content="数论">
 <meta property="og:type" content="article">
 <meta property="og:title" content="素数判定">
 <meta property="og:url" content="http://yoursite.com/undefined/素数判定/index.html">
 <meta property="og:site_name" content="无用心">
-<meta property="og:description" content="素数是除了1和本身没有其他因数的数。判断一个数是否是素数    对于一个数的素数判定，可以通过遍历它的所有因数，如果它的因数个数大于2，则它不是素数，否则它是素数。当遍历它的所有因数时，我们可以从1遍历到sqrt(n)，因为当一个数的因数肯定是一个大于等于sqrt(n)，另一个大于等于sqrt(n)的，所以当我们遍历所有因数时，遍历到sqrt(n)时，如果有除1以外的其他因数，则这个数不是素数，附">
+<meta property="og:description" content="素数是除了1和本身没有其他因数的数。判断一个数是否是素数    对于一个数的素数判定，可以通过遍历它的所有因数，如果它的因数个数大于2，则它不是素数，否则它是素数。当遍历它的所有因数时，">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-09T06:39:33.175Z">
+<meta property="og:updated_time" content="2019-07-09T06:42:02.551Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="素数判定">
-<meta name="twitter:description" content="素数是除了1和本身没有其他因数的数。判断一个数是否是素数    对于一个数的素数判定，可以通过遍历它的所有因数，如果它的因数个数大于2，则它不是素数，否则它是素数。当遍历它的所有因数时，我们可以从1遍历到sqrt(n)，因为当一个数的因数肯定是一个大于等于sqrt(n)，另一个大于等于sqrt(n)的，所以当我们遍历所有因数时，遍历到sqrt(n)时，如果有除1以外的其他因数，则这个数不是素数，附">
+<meta name="twitter:description" content="素数是除了1和本身没有其他因数的数。判断一个数是否是素数    对于一个数的素数判定，可以通过遍历它的所有因数，如果它的因数个数大于2，则它不是素数，否则它是素数。当遍历它的所有因数时，">
 
 
 
@@ -430,7 +430,7 @@
                 
               
 
-              <time title="创建时间：2019-07-09 13:38:36 / 修改时间：14:39:33" itemprop="dateCreated datePublished" datetime="2019-07-09T13:38:36+08:00">2019-07-09</time>
+              <time title="创建时间：2019-07-09 13:38:36 / 修改时间：14:42:02" itemprop="dateCreated datePublished" datetime="2019-07-09T13:38:36+08:00">2019-07-09</time>
             
 
             
@@ -488,7 +488,7 @@
                   <i class="fa fa-file-word-o"></i>
                 </span>
                 
-                <span title="本文字数">1.7k</span>
+                <span title="本文字数">1.6k</span>
               
 
               
@@ -500,7 +500,7 @@
                   <i class="fa fa-clock-o"></i>
                 </span>
                 
-                <span title="阅读时长">2 分钟</span>
+                <span title="阅读时长">1 分钟</span>
               
             </div>
           
@@ -520,10 +520,16 @@
       
 
       
-        <p>素数是除了1和本身没有其他因数的数。<br><strong>判断一个数是否是素数</strong><br>    对于一个数的素数判定，可以通过遍历它的所有因数，如果它的因数个数大于2，则它不是素数，否则它是素数。当遍历它的所有因数时，我们可以从1遍历到sqrt(n)，因为当一个数的因数肯定是一个大于等于sqrt(n)，另一个大于等于sqrt(n)的，所以当我们遍历所有因数时，遍历到sqrt(n)时，如果有除1以外的其他因数，则这个数不是素数，附上代码。<br>代码：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;n;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">2</span>;i&lt;=<span class="built_in">sqrt</span>(n);i++)&#123;<span class="comment">//因为1肯定是n的因数所以可以不遍历</span></span><br><span class="line">        <span class="keyword">if</span>(n%i==<span class="number">0</span>)&#123;<span class="comment">//判断从2到sqrt(n)中是否有n的因数</span></span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(i&gt;<span class="built_in">sqrt</span>(n))&#123;</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;n&lt;&lt;<span class="string">"是素数"</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;n&lt;&lt;<span class="string">"不是素数"</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">~~~	</span><br><span class="line">判断一系列数中有哪些数是素数</span><br><span class="line">	对于此类问题，可以通过求一个素数的思维，对一个数组中的数都判断一次就可以了，及在上述代码中加一个循环遍历数组中的每一个元素，但是这时候的时间复杂度很高，对于每一个数的时间复杂度为O(<span class="built_in">sqrt</span>(n))，遍历所有数，一般都会T。所以我们不在介绍那种方法。</span><br><span class="line">	首先，对于一个素数来说，它除了<span class="number">1</span>和自己没有其他的因数，所以每个素数的倍数都不可能是素数，因为它有其他因数，那么我们先假设所有的数都是素数，然后从<span class="number">2</span>开始遍历，找到素数之后，就把素数的倍数全部变为非素数，这样可以把时间复杂度压缩到O(nlogn)，接下来附上代码。</span><br><span class="line">代码：</span><br><span class="line">~~~c</span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> Maxn=<span class="number">1000000</span>;</span><br><span class="line"><span class="keyword">bool</span> ispri[Maxn];</span><br><span class="line"><span class="keyword">int</span> num[Maxn];</span><br><span class="line"><span class="keyword">int</span> ans[Maxn];</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">solve</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    fill(ispri,ispri+Maxn,<span class="literal">true</span>);</span><br><span class="line">    ispri[<span class="number">1</span>]=<span class="literal">false</span>;<span class="comment">//1是非素数</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;Maxn;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(ispri[i])&#123;<span class="comment">//如果是素数</span></span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=i+i;j&lt;Maxn;j+=i)&#123;</span><br><span class="line">                ispri[j]=<span class="literal">false</span>;<span class="comment">//素数的倍数都为非素数</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    solve();</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="keyword">int</span> len=<span class="number">0</span>;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;n;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">        <span class="keyword">int</span> m;</span><br><span class="line">        <span class="built_in">cin</span>&gt;&gt;m;</span><br><span class="line">        <span class="keyword">if</span>(ispri[m])&#123;<span class="comment">//如果是素数，则存入ans</span></span><br><span class="line">            ans[len++]=m;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;len;i++)&#123;</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;ans[i]&lt;&lt;<span class="string">' '</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <p>素数是除了1和本身没有其他因数的数。<br><strong>判断一个数是否是素数</strong><br>    对于一个数的素数判定，可以通过遍历它的所有因数，如果它的因数个数大于2，则它不是素数，否则它是素数。当遍历它的所有因数时，<a id="more"></a>我们可以从1遍历到sqrt(n)，因为当一个数的因数肯定是一个大于等于sqrt(n)，另一个大于等于sqrt(n)的，所以当我们遍历所有因数时，遍历到sqrt(n)时，如果有除1以外的其他因数，则这个数不是素数，附上代码。<br>代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;cstdio&gt;</span><br><span class="line">#include &lt;cmath&gt;</span><br><span class="line">#include &lt;iostream&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    int n;</span><br><span class="line">    cin&gt;&gt;n;</span><br><span class="line">    int i;</span><br><span class="line">    for(i=2;i&lt;=sqrt(n);i++)&#123;//因为1肯定是n的因数所以可以不遍历</span><br><span class="line">        if(n%i==0)&#123;//判断从2到sqrt(n)中是否有n的因数</span><br><span class="line">            break;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    if(i&gt;sqrt(n))&#123;</span><br><span class="line">        cout&lt;&lt;n&lt;&lt;&quot;是素数&quot;&lt;&lt;endl;</span><br><span class="line">    &#125;</span><br><span class="line">    else&#123;</span><br><span class="line">        cout&lt;&lt;n&lt;&lt;&quot;不是素数&quot;&lt;&lt;endl;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">~~~	</span><br><span class="line">判断一系列数中有哪些数是素数</span><br><span class="line">	对于此类问题，可以通过求一个素数的思维，对一个数组中的数都判断一次就可以了，及在上述代码中加一个循环遍历数组中的每一个元素，但是这时候的时间复杂度很高，对于每一个数的时间复杂度为O(sqrt(n))，遍历所有数，一般都会T。所以我们不在介绍那种方法。</span><br><span class="line">	首先，对于一个素数来说，它除了1和自己没有其他的因数，所以每个素数的倍数都不可能是素数，因为它有其他因数，那么我们先假设所有的数都是素数，然后从2开始遍历，找到素数之后，就把素数的倍数全部变为非素数，这样可以把时间复杂度压缩到O(nlogn)，接下来附上代码。</span><br><span class="line">代码：</span><br></pre></td></tr></table></figure>
 
-<p>还有一种O(n)的算法，但是博主还没有理解，下次再写吧，哈哈。</p>
+<p>#include <cstdio></cstdio></p>
+<p>#include <cmath></cmath></p>
+<p>#include <iostream><br>using namespace std;<br>const int Maxn=1000000;<br>bool ispri[Maxn];<br>int num[Maxn];<br>int ans[Maxn];<br>void solve()<br>{
+    fill(ispri,ispri+Maxn,true);<br>    ispri[1]=false;//1是非素数<br>    for(int i=2;i&lt;Maxn;i++){<br>        if(ispri[i]){//如果是素数<br>            for(int j=i+i;j&lt;Maxn;j+=i){<br>                ispri[j]=false;//素数的倍数都为非素数<br>            }<br>        }<br>    }<br>}
+int main()<br>{
+    solve();<br>    int n;<br>    int len=0;<br>    cin&gt;&gt;n;<br>    for(int i=0;i&lt;n;i++){<br>        int m;<br>        cin&gt;&gt;m;<br>        if(ispri[m]){//如果是素数，则存入ans<br>            ans[len++]=m;<br>        }<br>    }<br>    for(int i=0;i&lt;len;i++){<br>        cout&lt;&lt;ans[i]&lt;&lt;’ ‘;<br>    }<br>    return 0;<br>}
+<del>~</del><br>还有一种O(n)的算法，但是博主还没有理解，下次再写吧，哈哈。</iostream></p>
 
       
     </div>
@@ -802,7 +808,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="站点阅读时长">16 分钟</span>
+    <span title="站点阅读时长">15 分钟</span>
   
 </div>
 
