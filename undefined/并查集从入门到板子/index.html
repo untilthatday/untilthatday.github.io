@@ -96,14 +96,18 @@
 
 
 
-  <meta property="og:type" content="article">
+  <meta name="description" content="并查集是一种数据结构，是一种树形结构，这是百度百科上对并查集的解释： 1并查集，在一些有N个元素的集合应用问题中，我们通常是在开始时让每个元素构成一个单元素的集合，然后按一定顺序将属于同一组的元素所在的集合合并，其间要反复查找一个元素在哪个集合中。这一类问题近几年来反复出现在信息学的国际国内赛题中，其特点是看似并不复杂，但数据量极大，若用正常的数据结构来描述的话，往往在空间上过大，计算机无法承受；">
+<meta name="keywords" content="并查集">
+<meta property="og:type" content="article">
 <meta property="og:title" content="并查集从入门到板子">
 <meta property="og:url" content="http://yoursite.com/undefined/并查集从入门到板子/index.html">
 <meta property="og:site_name" content="无用心">
+<meta property="og:description" content="并查集是一种数据结构，是一种树形结构，这是百度百科上对并查集的解释： 1并查集，在一些有N个元素的集合应用问题中，我们通常是在开始时让每个元素构成一个单元素的集合，然后按一定顺序将属于同一组的元素所在的集合合并，其间要反复查找一个元素在哪个集合中。这一类问题近几年来反复出现在信息学的国际国内赛题中，其特点是看似并不复杂，但数据量极大，若用正常的数据结构来描述的话，往往在空间上过大，计算机无法承受；">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-16T11:58:37.299Z">
+<meta property="og:updated_time" content="2019-07-16T15:58:36.359Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="并查集从入门到板子">
+<meta name="twitter:description" content="并查集是一种数据结构，是一种树形结构，这是百度百科上对并查集的解释： 1并查集，在一些有N个元素的集合应用问题中，我们通常是在开始时让每个元素构成一个单元素的集合，然后按一定顺序将属于同一组的元素所在的集合合并，其间要反复查找一个元素在哪个集合中。这一类问题近几年来反复出现在信息学的国际国内赛题中，其特点是看似并不复杂，但数据量极大，若用正常的数据结构来描述的话，往往在空间上过大，计算机无法承受；">
 
 
 
@@ -426,12 +430,34 @@
                 
               
 
-              <time title="创建时间：2019-07-16 19:58:37" itemprop="dateCreated datePublished" datetime="2019-07-16T19:58:37+08:00">2019-07-16</time>
+              <time title="创建时间：2019-07-16 19:58:37 / 修改时间：23:58:36" itemprop="dateCreated datePublished" datetime="2019-07-16T19:58:37+08:00">2019-07-16</time>
             
 
+            
+              
+
+              
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/数据结构/" itemprop="url" rel="index"><span itemprop="name">数据结构</span></a></span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -462,7 +488,7 @@
                   <i class="fa fa-file-word-o"></i>
                 </span>
                 
-                <span title="本文字数">0</span>
+                <span title="本文字数">302</span>
               
 
               
@@ -494,7 +520,11 @@
       
 
       
-        
+        <p>并查集是一种数据结构，是一种树形结构，<br>这是百度百科上对并查集的解释：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">并查集，在一些有N个元素的集合应用问题中，我们通常是在开始时让每个元素构成一个单元素的集合，然后按一定顺序将属于同一组的元素所在的集合合并，其间要反复查找一个元素在哪个集合中。这一类问题近几年来反复出现在信息学的国际国内赛题中，其特点是看似并不复杂，但数据量极大，若用正常的数据结构来描述的话，往往在空间上过大，计算机无法承受；即使在空间上勉强通过，运行的时间复杂度也极高，根本就不可能在比赛规定的运行时间（<span class="number">1</span>~<span class="number">3</span>秒）内计算出试题需要的结果，只能用并查集来描述。</span><br></pre></td></tr></table></figure>
+
+<p>并查集的主要思想是压缩路径，举个栗子：HDU oj 1213题，对</p>
+
       
     </div>
 
@@ -514,6 +544,15 @@
     
 
     <footer class="post-footer">
+      
+        
+          
+        
+        <div class="post-tags">
+          
+            <a href="/tags/并查集/" rel="tag"># 并查集</a>
+          
+        </div>
       
 
       
@@ -620,7 +659,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">2</span>
+                      
+                    
+                    <span class="site-state-item-count">3</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -649,7 +690,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">6</span>
+                      
+                    
+                    <span class="site-state-item-count">7</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
