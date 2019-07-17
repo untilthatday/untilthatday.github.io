@@ -104,7 +104,7 @@
 <meta property="og:site_name" content="无用心">
 <meta property="og:description" content="并查集是一种数据结构，是一种树形结构，这是百度百科上对并查集的解释： 1并查集，在一些有N个元素的集合应用问题中，我们通常是在开始时让每个元素构成一个单元素的集合，然后按一定顺序将属于同一组的元素所在的集合合并，其间要反复查找一个元素在哪个集合中。这一类问题近几年来反复出现在信息学的国际国内赛题中，其特点是看似并不复杂，但数据量极大，若用正常的数据结构来描述的话，往往在空间上过大，计算机无法承受；">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-16T15:58:36.359Z">
+<meta property="og:updated_time" content="2019-07-17T14:05:31.758Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="并查集从入门到板子">
 <meta name="twitter:description" content="并查集是一种数据结构，是一种树形结构，这是百度百科上对并查集的解释： 1并查集，在一些有N个元素的集合应用问题中，我们通常是在开始时让每个元素构成一个单元素的集合，然后按一定顺序将属于同一组的元素所在的集合合并，其间要反复查找一个元素在哪个集合中。这一类问题近几年来反复出现在信息学的国际国内赛题中，其特点是看似并不复杂，但数据量极大，若用正常的数据结构来描述的话，往往在空间上过大，计算机无法承受；">
@@ -430,12 +430,24 @@
                 
               
 
-              <time title="创建时间：2019-07-16 19:58:37 / 修改时间：23:58:36" itemprop="dateCreated datePublished" datetime="2019-07-16T19:58:37+08:00">2019-07-16</time>
+              <time title="创建时间：2019-07-16 19:58:37" itemprop="dateCreated datePublished" datetime="2019-07-16T19:58:37+08:00">2019-07-16</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-07-17 22:05:31" itemprop="dateModified" datetime="2019-07-17T22:05:31+08:00">2019-07-17</time>
               
             
           </span>
@@ -488,7 +500,7 @@
                   <i class="fa fa-file-word-o"></i>
                 </span>
                 
-                <span title="本文字数">302</span>
+                <span title="本文字数">2.2k</span>
               
 
               
@@ -500,7 +512,7 @@
                   <i class="fa fa-clock-o"></i>
                 </span>
                 
-                <span title="阅读时长">1 分钟</span>
+                <span title="阅读时长">2 分钟</span>
               
             </div>
           
@@ -523,8 +535,19 @@
         <p>并查集是一种数据结构，是一种树形结构，<br>这是百度百科上对并查集的解释：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">并查集，在一些有N个元素的集合应用问题中，我们通常是在开始时让每个元素构成一个单元素的集合，然后按一定顺序将属于同一组的元素所在的集合合并，其间要反复查找一个元素在哪个集合中。这一类问题近几年来反复出现在信息学的国际国内赛题中，其特点是看似并不复杂，但数据量极大，若用正常的数据结构来描述的话，往往在空间上过大，计算机无法承受；即使在空间上勉强通过，运行的时间复杂度也极高，根本就不可能在比赛规定的运行时间（<span class="number">1</span>~<span class="number">3</span>秒）内计算出试题需要的结果，只能用并查集来描述。</span><br></pre></td></tr></table></figure>
 
-<p>并查集的主要思想是压缩路径，举个栗子：HDU oj 1213题，对</p>
+<pre><code>并查集的主要思想是压缩路径。如果我们想要确认两个物体是否</code></pre><p>为一个集合，并且进行集合合并，我们使用暴力的思想就是一个一个<br>的去搜索，观察是否能够找到共同的结点，也就是是否有一个共同的<br>祖先，但是这样时间复杂度是十分巨大的，如果结点数量特别大，那<br>么花费的时间是非常巨大的，那么用并查集的思想是怎么节省时间的<br>呢？<br>    并查集的思想是，使用一个数组来记录元素的根节点，如果找到<br>了两个元素是一个集合的，那么就将这两个元素的根节点都变为相同<br>的元素，那么在之后判断这两个元素是否为一个集合时，只需要判断<br>其根节点是否相同就可以了，很大限度的降低了查询时的时间消耗，<br>最开始所有元素的根节点都是它本身，然后在之后合并集合时更新元<br>素的根节点。</p>
+<p>初始化代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">int f[10000];</span><br><span class="line">int n;//结点数量</span><br><span class="line">for(int i=0;i&lt;n;i++)&#123;</span><br><span class="line">	f[i]=i;//将元素的根节点都变为自己</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<p>寻找根节点代码：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">findfa</span><span class="params">(<span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(x==f[x])&#123;</span><br><span class="line">		<span class="keyword">return</span> x;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> findfa(f[x]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>更新根节点代码：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> tx=findfa(x),ty=findfa(y);<span class="comment">//寻找到根节点</span></span><br><span class="line"><span class="keyword">if</span>(tx!=ty)&#123;<span class="comment">//不在同一个集合</span></span><br><span class="line">	f[tx]=ty;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>好了，基本代码和思想都介绍完了，接下来我们看一下例题：<br>我们做一下 HDU1213:<a href="https://vjudge.net/contest/290424#problem/C" target="_blank" rel="noopener">https://vjudge.net/contest/290424#problem/C</a></p>
+<p>题目大意是有一群人，如果两个人相互认识，那么他们就可以坐在一<br>张桌子上吃饭，如果两个人不直接认识，但是都认识一个人，那么也<br>认为这两个人认识，问：给出一些人们的相识信息，请求出这n个人用<br>餐需要多少张桌子。<br>本题是一个并查集的模板题，算出在给出了这些人们的相识信息之后<br>有多少个群体是不相互认识的，上面说了，并查集的思想是如果在一<br>个集合中就有相同的根节点，那么这里我们就计算在使用并查集之后<br>有多少个不同的根节点就行了，但是最开始我们是把元素的根节点设置为本身的，所以这题就是求使用并查集处理之后，还有多少个元素的根节点是它本身。<br>AC代码：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> fa[<span class="number">1100</span>];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Find</span><span class="params">(<span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(x==fa[x])</span><br><span class="line">        <span class="keyword">return</span> x;</span><br><span class="line">    fa[x]=Find(fa[x]);</span><br><span class="line">    <span class="keyword">return</span> fa[x];</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> T,flag[<span class="number">1100</span>];</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;T;</span><br><span class="line">    <span class="keyword">while</span>(T--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">memset</span>(flag,<span class="number">0</span>,<span class="keyword">sizeof</span>(flag));</span><br><span class="line">        <span class="keyword">int</span> n,m;</span><br><span class="line">        <span class="built_in">cin</span>&gt;&gt;n&gt;&gt;m;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">        &#123;</span><br><span class="line">            fa[i]=i;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;m;i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">int</span> a,b;</span><br><span class="line">            <span class="built_in">cin</span>&gt;&gt;a&gt;&gt;b;</span><br><span class="line">            <span class="keyword">int</span> fx=Find(a),fy=Find(b);</span><br><span class="line">            <span class="keyword">if</span>(fx!=fy)</span><br><span class="line">            &#123;</span><br><span class="line">                fa[fy]=fx;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> num=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">int</span> x=Find(i);</span><br><span class="line">            <span class="keyword">if</span>(flag[x]==<span class="number">0</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                flag[x]=<span class="number">1</span>;</span><br><span class="line">                num++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;num&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -801,7 +824,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="站点总字数">28k</span>
+    <span title="站点总字数">30k</span>
   
 
   
@@ -810,7 +833,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="站点阅读时长">25 分钟</span>
+    <span title="站点阅读时长">27 分钟</span>
   
 </div>
 
