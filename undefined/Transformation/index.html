@@ -104,7 +104,7 @@
 <meta property="og:site_name" content="无用心">
 <meta property="og:description" content="题目链接：http://acm.hdu.edu.cn/showproblem.php?pid=4578TransformationTime Limit: 15000/8000 MS (Java/Others)    Memory Limit: 65535/65536 K (Java/Others)Total Submission(s): 10436    Accepted Submission(s">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-31T12:57:17.682Z">
+<meta property="og:updated_time" content="2019-09-27T13:22:35.724Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Transformation HDU-4578(线段树)">
 <meta name="twitter:description" content="题目链接：http://acm.hdu.edu.cn/showproblem.php?pid=4578TransformationTime Limit: 15000/8000 MS (Java/Others)    Memory Limit: 65535/65536 K (Java/Others)Total Submission(s): 10436    Accepted Submission(s">
@@ -447,7 +447,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-07-31 20:57:17" itemprop="dateModified" datetime="2019-07-31T20:57:17+08:00">2019-07-31</time>
+                <time title="修改时间：2019-09-27 21:22:35" itemprop="dateModified" datetime="2019-09-27T21:22:35+08:00">2019-09-27</time>
               
             
           </span>
@@ -550,11 +550,11 @@
 <p>datepq(区间总值)=(datep1+2<em>date1</em>c+c<em>c)+(datep2+2</em>date2<em>c+c</em>c)+(datep3+2<em>date3</em>c+c<em>c)+…+(datepr+2</em>dater<em>c+c</em>c)=datepq+2<em>dateq</em>c+len<em>c</em>c.</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">3次幂的时候也是一样的推理，然后我们就可以直接通过懒标记计算了（博主就是在这里WA了半天，枯了）。</span><br><span class="line">然后就是处理优先级的问题了，加法和乘法的运算顺序，如果在乘法运算之前有加法，那么也需要把加法的懒标记也加入乘法的运算，这个也是乘法分配律的内容。如果遇到赋值的要求就将之前的标记全部初始化，因为有了赋值操作之后，之前的运算都算全部作废了，然后更新结点的值就Ok了，说了这么多，接下来就直接看代码吧。我觉得其实看代码更容易看懂吧。</span><br><span class="line">代码：</span><br></pre></td></tr></table></figure>
 
-<p>#include <iostream></iostream></p>
-<p>#include <algorithm></algorithm></p>
-<p>#include <cstring></cstring></p>
-<p>#include <cstdio><br>using namespace std;<br>const int mod=10007;<br>typedef long long ll;<br>const int maxn=1e5+7;<br>struct node<br>{
-    ll l,r;<br>    ll lazyc,lazyj,date;<br>    ll lazyd;<br>    ll date1,date2;<br>}t[maxn&lt;&lt;2];</cstdio></p>
+<p>#include<iostream></iostream></p>
+<p>#include<algorithm></algorithm></p>
+<p>#include<cstdio></cstdio></p>
+<p>#include<cstring><br>using namespace std;<br>const int mod=10007;<br>typedef long long ll;<br>const int maxn=1e5+7;<br>struct node<br>{
+    ll l,r;<br>    ll lazyc,lazyj,date;<br>    ll lazyd;<br>    ll date1,date2;<br>}t[maxn&lt;&lt;2];</cstring></p>
 <p>void build(ll root,ll l,ll r)<br>{
     t[root].l=l;<br>    t[root].r=r;<br>    t[root].date=0;<br>    t[root].date1=0;<br>    t[root].date2=0;<br>    t[root].lazyc=1;<br>    t[root].lazyd=0;<br>    t[root].lazyj=0;<br>    if(l==r)return ;<br>    ll mid=(l+r)&gt;&gt;1;<br>    build(root&lt;&lt;1,l,mid);<br>    build(root&lt;&lt;1|1,mid+1,r);<br>}</p>
 <p>ll quite_mi(ll n,ll m);</p>
